@@ -2,21 +2,21 @@ var app = angular.module("app", []);
 app.controller("ctrl", function($scope) {
     //$scope.myLists = ["你好", "B", "AA", "AAAA", "ABS", "A143", "A2XX", "ADFES", "Aqwe"];
     //
-    // $scope.myLists = [
-    // {"yourKey":{"aa":1}},
-    // {"yourKey":{"aa":2}},
-    // {"yourKey":{"aa":3}},
-    // {"yourKey":{"aa":4}},
-    // {"yourKey":{"aa":5}}];
+    $scope.myLists = [
+    {"yourKey":{"aa":1}},
+    {"yourKey":{"aa":2}},
+    {"yourKey":{"aa":3}},
+    {"yourKey":{"aa":4}},
+    {"yourKey":{"aa":5}}];
     
 
 
-    $scope.myLists = [
-    {"yourKey":{"aa":{"aaa":1}}},
-    {"yourKey":{"aa":{"aaa":2}}},
-    {"yourKey":{"aa":{"aaa":3}}},
-    {"yourKey":{"aa":{"aaa":4}}},
-    {"yourKey":{"aa":{"aaa":5}}}];
+    // $scope.myLists = [
+    // {"yourKey":{"aa":{"aaa":1}}},
+    // {"yourKey":{"aa":{"aaa":2}}},
+    // {"yourKey":{"aa":{"aaa":3}}},
+    // {"yourKey":{"aa":{"aaa":4}}},
+    // {"yourKey":{"aa":{"aaa":5}}}];
 
     
     // $scope.myLists = [
@@ -59,7 +59,7 @@ app.directive("alertdialog", function() {
         link: function(scope, elem, attrs, ctrl) {
             var isFirst = true;
 
-            var keys = scope.key.split(".");
+            var keys = scope.key ? scope.key.split(".") : null;
 
             //scope.results = scope.getValue();
             //console.log(scope.key.split("."));
@@ -71,6 +71,10 @@ app.directive("alertdialog", function() {
                 console.log(ctrl.$modelValue);
             }
             scope.getValue = function() {
+                if(!keys.length) {
+                    return;
+                }
+                console.log("进来了-------------------------");
                 var newArr = [];
                 for(var i = 0, len = scope.results.length; i < len; i++) {
                     var value = scope.results[i][keys[0]];
@@ -91,7 +95,7 @@ app.directive("alertdialog", function() {
                
             }
             scope.show = function() {
-                if(isFirst) {
+                if(isFirst && keys) {
                     scope.getValue();
                     isFirst = false;
                 }
