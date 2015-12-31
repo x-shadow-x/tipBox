@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dialog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-controller="ctrl">
+<alertdialog lists="myLists" ng-model="keyWord" key="yourKey.aa.aaa"></alertdialog>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    
+
+    <!--<p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non eaque repudiandae consequuntur, maxime et architecto in autem dolores, hic officia libero placeat nostrum quibusdam. Similique accusantium hic quod odio sit.
+    </p>
+    <div>
+        <form name="myForm" class="css-form" novalidate>
+            <div>
+                整数(0-10):
+                <input type="number" ng-model="size" name="size" min="0" max="10" integer/>
+                
+                <i ng-show="myForm.size.$error.integer">不是合法的整数！</i>
+                <i ng-show="myForm.size.$error.min || myForm.size.$error.max">数值必须位于0到10之间！</i>
+            </div>
+            <div>
+                浮点数:
+                <input type="text" ng-model="length" name="length" float />
+                <i ng-show="myForm.length.$error.float">不是合法的浮点数！</i>
+            </div>
+            
+        </form>
+    </div>-->
+
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
